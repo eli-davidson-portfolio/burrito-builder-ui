@@ -13,13 +13,8 @@ const [orders, setOrders] = useState([])
   },[])
 
   const handleNewOrder = (newOrder) => {
-    console.log("adding Order", newOrder)
     setOrders(prevOrders => [...prevOrders, newOrder])
   }
-
-  useEffect(() => {
-      console.log(orders)
-  },[orders])
 
     return (
       <main className="App">

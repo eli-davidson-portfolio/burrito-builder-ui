@@ -28,7 +28,6 @@ const OrderForm = (props) => {
     e.preventDefault();
     postOrder(currentOrder).then(data => {
       if(data.id) {
-        console.log("Post Success:", data)
         props.handleNewOrder(data)
       clearInputs();
       }
@@ -49,10 +48,6 @@ const OrderForm = (props) => {
     }
     setCurrentOrder({name, ingredients})
   },[name, ingredients])
-
-  useEffect(() => {
-    console.log(ingredients)
-  },[ingredients])
 
     const possibleIngredients = ['beans', 'steak', 'carnitas', 'sofritas', 'lettuce', 'queso fresco', 'pico de gallo', 'hot sauce', 'guacamole', 'jalapenos', 'cilantro', 'sour cream'];
     const ingredientButtons = possibleIngredients.map(ingredient => {
