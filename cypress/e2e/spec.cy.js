@@ -1,5 +1,5 @@
 beforeEach(() => {
-    cy.intercept('GET', {fixture: 'orders.json'}).as('getOrders')
+    cy.intercept('GET','http://localhost:3001/api/v1/orders' ,{fixture: 'orders.json'}).as('getOrders')
     cy.visit('localhost:3000')
 })
 
