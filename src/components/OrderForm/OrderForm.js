@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { postOrder } from '../../apiCalls';
 
 const OrderForm = (props) => {
   const [name, setName] = useState('')
   const [ingredients, setIngredients] = useState([])
+  const [currentOrder, setCurrentOrder] = useState({})
   const [isDisabled, setIsDisabled] = useState(true)
 
   const handleIngredientChange = (e) => {
@@ -24,7 +26,13 @@ const OrderForm = (props) => {
   }
   const handleSubmit = e => {
     e.preventDefault();
-    this.clearInputs();
+    postOrder(currentOrder).then(data => {
+      if(data.id) {
+        console.log("Post Success:", data)
+      clearInputs();
+      }
+    })
+    
   }
 
   const clearInputs = () => {
@@ -38,6 +46,7 @@ const OrderForm = (props) => {
     } else {
       setIsDisabled(true)
     }
+    setCurrentOrder({name, ingredients})
   },[name, ingredients])
 
   useEffect(() => {

@@ -12,6 +12,10 @@ const [orders, setOrders] = useState([])
     .then(data => {setOrders(data.orders)})
   },[])
 
+  const handleNewOrder = () => {
+    
+  }
+
   useEffect(() => {
       console.log(orders)
   },[orders])

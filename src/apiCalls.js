@@ -3,3 +3,15 @@ export const getOrders = () => {
   .then(response => response.json())
   .catch(err => console.error('Error fetching:', err));
 }
+
+export const postOrder = (currentOrder) => {
+  return fetch('http://localhost:3001/api/v1/orders', {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(currentOrder)
+    })
+  .then(response => response.json())
+  .catch(err => console.error('Error fetching:', err));
+}
