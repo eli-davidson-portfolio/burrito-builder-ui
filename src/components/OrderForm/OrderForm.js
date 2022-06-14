@@ -52,14 +52,14 @@ const OrderForm = (props) => {
     const possibleIngredients = ['beans', 'steak', 'carnitas', 'sofritas', 'lettuce', 'queso fresco', 'pico de gallo', 'hot sauce', 'guacamole', 'jalapenos', 'cilantro', 'sour cream'];
     const ingredientButtons = possibleIngredients.map(ingredient => {
       return (
-        <button key={ingredient} name={ingredient} onClick={e => handleIngredientChange(e)}>
+        <button className="ingredientButton" key={ingredient} name={ingredient} onClick={e => handleIngredientChange(e)}>
           {ingredient}
         </button>
       )
     });
 
     return (
-      <form>
+      <form className="OrderForm">
         <input
           type='text'
           placeholder='Name'
@@ -70,9 +70,9 @@ const OrderForm = (props) => {
 
         { ingredientButtons }
 
-        <p>Order: { ingredients.join(', ') || 'Nothing selected' }</p>
+        <p className="orderDisplay">Order: { ingredients.join(', ') || 'Nothing selected' }</p>
 
-        <button disabled={isDisabled} onClick={e => handleSubmit(e)}>
+        <button className='submitOrder' disabled={isDisabled} onClick={e => handleSubmit(e)}>
           Submit Order
         </button>
       </form>
