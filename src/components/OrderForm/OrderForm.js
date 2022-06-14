@@ -29,6 +29,7 @@ const OrderForm = (props) => {
     postOrder(currentOrder).then(data => {
       if(data.id) {
         console.log("Post Success:", data)
+        props.handleNewOrder(data)
       clearInputs();
       }
     })

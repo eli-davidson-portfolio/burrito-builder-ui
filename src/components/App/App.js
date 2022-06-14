@@ -12,8 +12,9 @@ const [orders, setOrders] = useState([])
     .then(data => {setOrders(data.orders)})
   },[])
 
-  const handleNewOrder = () => {
-    
+  const handleNewOrder = (newOrder) => {
+    console.log("adding Order", newOrder)
+    setOrders(prevOrders => [...prevOrders, newOrder])
   }
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const [orders, setOrders] = useState([])
       <main className="App">
         <header>
           <h1>Burrito Builder</h1>
-          <OrderForm />
+          <OrderForm handleNewOrder={handleNewOrder}/>
         </header>
       { orders &&  <Orders orders={orders}/>}
       </main>
