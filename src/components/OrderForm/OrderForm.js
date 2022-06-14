@@ -15,7 +15,7 @@ const OrderForm = (props) => {
     } else {
       setIngredients(prevIngredients => {
         return prevIngredients.filter(ingredient => {
-          return ingredient != targetIngredient
+          return ingredient !== targetIngredient
         })
       })
     }
