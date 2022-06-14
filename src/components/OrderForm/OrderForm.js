@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const OrderForm = (props) => {
   const [name, setName] = useState('')
   const [ingredients, setIngredients] = useState([])
-  const [disabled, setDisabled] = useState('disabled')
+  const [isDisabled, setIsDisabled] = useState(true)
 
   const handleIngredientChange = (e) => {
     e.preventDefault()
@@ -33,10 +33,10 @@ const OrderForm = (props) => {
   }
 
   useEffect(() => {
-    if (name || ingredients) {
-      setDisabled('')
+    if (name && ingredients.length) {
+      setIsDisabled(false)
     } else {
-      setDisabled("disabled")
+      setIsDisabled(true)
     }
   },[name, ingredients])
 
@@ -67,7 +67,7 @@ const OrderForm = (props) => {
 
         <p>Order: { ingredients.join(', ') || 'Nothing selected' }</p>
 
-        <button {...disabled} onClick={e => handleSubmit(e)}>
+        <button disabled={isDisabled} onClick={e => handleSubmit(e)}>
           Submit Order
         </button>
       </form>
