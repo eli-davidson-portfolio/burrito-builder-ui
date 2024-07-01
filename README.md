@@ -2,6 +2,31 @@
 
 Our company is building a prototype ticketing system for a local burrito shop. Unfortunately, the form dev on the project recently quit, leaving behind a broken app and little to no documentation. It's your job to save the project!
 
+## Technologies Used
+
+### Languages
+- JavaScript
+
+### Frontend
+- React
+  - react-dom
+
+### Testing
+- @testing-library/react
+- @testing-library/jest-dom
+- @testing-library/user-event
+- Cypress
+- jest-environment-jsdom-sixteen
+
+### Build Tools
+- react-scripts
+
+### Others
+- ESLint
+- Browserslist
+- fsevents (for filesystem events)
+- Node.js (for package management and scripts)
+
 ## Setup
 
 * Fork this repo
